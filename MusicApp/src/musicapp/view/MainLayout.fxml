@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" fx:id="pane_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: transparent;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="musicapp.controller.MainLayoutController">
+   <children>
+      <AnchorPane layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="330.0">
+         <children>
+            <Pane fx:id="pane_header" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="330.0" styleClass="pane-top" stylesheets="@../style.css">
+               <children>
+                  <JFXButton fx:id="button_menu" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#menuOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 3em; -fx-background-radius: 3em; -fx-border-width: 1 1 1 1;" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="LIST_UL" size="16" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="button_close" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="276.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#closeOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 3em; -fx-background-radius: 3em; -fx-border-width: 1 1 1 1;" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_download" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="330.0" style="-fx-background-color: green;" />
+            <Pane fx:id="pane_about" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="330.0" style="-fx-background-color: black;" />
+            <Pane fx:id="pane_home" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="330.0" style="-fx-background-color: #5AB0E2;" />
+            <Pane fx:id="pane_song" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="330.0" style="-fx-background-color: #5AB0E2;">
+               <children>
+                  <Pane layoutY="360.0" prefHeight="130.0" prefWidth="330.0" styleClass="pane-bottom" stylesheets="@../style.css">
+                     <children>
+                        <FontAwesomeIconView fx:id="button_play" fill="WHITE" glyphName="PLAY" layoutX="159.0" layoutY="70.0" size="25" />
+                        <FontAwesomeIconView fx:id="button_left" fill="WHITE" glyphName="ANGLE_LEFT" layoutX="70.0" layoutY="75.0" size="40" />
+                        <FontAwesomeIconView fx:id="button_right" fill="WHITE" glyphName="ANGLE_RIGHT" layoutX="246.0" layoutY="75.0" size="40" />
+                        <JFXProgressBar layoutX="11.0" layoutY="3.0" prefHeight="0.0" prefWidth="308.0" />
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="355.0" fitWidth="330.0" opacity="0.19" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/1.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane_menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="50.0" style="-fx-background-color: #3D4956;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <JFXButton fx:id="button_home" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionMenu" prefHeight="40.0" prefWidth="50.0" text=" " textAlignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="HOME" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="button_song" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionMenu" prefHeight="40.0" prefWidth="50.0" text=" " textAlignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MUSIC" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="button_download" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionMenu" prefHeight="40.0" prefWidth="50.0" text=" " textAlignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="DOWNLOAD" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="button_setting" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionMenu" prefHeight="40.0" prefWidth="50.0" text=" " textAlignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="GEAR" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="button_about" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutY="340.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionMenu" prefHeight="40.0" prefWidth="50.0" text=" " textAlignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TWITCH" size="20" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane_setting" layoutX="385.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="265.0" style="-fx-background-color: #3D4956; -fx-background-radius: .5em;" visible="false">
+         <children>
+            <Pane prefHeight="49.0" prefWidth="265.0" style="-fx-background-color: #283C50; -fx-background-radius: .5em;">
+               <children>
+                  <JFXButton fx:id="button_subclose" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="217.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#subcloseOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-border-radius: 3em; -fx-background-radius: 3em; -fx-border-width: 1 1 1 1;" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

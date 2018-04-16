@@ -1,0 +1,6 @@
+.pane-top{
+    -fx-background-color: linear-gradient(to bottom, #283C50, #5AB0E2);
+}
+.pane-bottom{
+    -fx-background-color: linear-gradient(to bottom, #5AB0E2, #283C50);
+}
