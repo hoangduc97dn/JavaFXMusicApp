@@ -6,22 +6,29 @@
 package musicapp.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import musicapp.model.Song;
 
 /**
  *
  * @author sun
  */
-public class MainLayoutController implements Initializable {
+public class MainLayoutController extends getlinkDownloadFromNhaccuatui implements Initializable {
 
     @FXML
     private Pane pane_header;
@@ -55,20 +62,39 @@ public class MainLayoutController implements Initializable {
     private AnchorPane pane_main;
     @FXML
     private JFXButton button_subclose;
-
-    static private int index = 0;
     @FXML
     private FontAwesomeIconView button_play;
     @FXML
     private FontAwesomeIconView button_left;
     @FXML
     private FontAwesomeIconView button_right;
+    @FXML
+    private ScrollPane pane_bxh;
+    @FXML
+    private JFXButton button_search;
+    @FXML
+    private JFXTextField text_search;
 
+    static private int index = 0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }
 
+    private void getToList(ArrayList<Song> listInfo){
+        JFXListView<Label> list = new JFXListView<>();
+        Label label;
+        for (int i = 0; i < 10; i++) {
+            label = new Label(listInfo.get(i).getName());
+            label.setStyle("-fx-pref-height:40");
+            list.getItems().add(label);
+        }
+        
+        list.setStyle("-fx-pref-width:278");
+        StackPane container = new StackPane(list);
+        pane_bxh.setContent(container);
+        pane_bxh.fitToWidthProperty();
+    }
     @FXML
     private void handleActionMenu(ActionEvent event) {
         if (event.getSource() == button_home && index != 0) {
@@ -123,5 +149,17 @@ public class MainLayoutController implements Initializable {
     @FXML
     private void subcloseOnAction(ActionEvent event) {
         pane_setting.setVisible(false);
+    }
+
+    @FXML
+    private void searchOnClick(ActionEvent event) {
+        if(!text_search.getText().trim().equals("")){
+            ArrayList list = getFullInfo(getListSongFromKeyword(text_search.getText().trim()));
+            getToList(list);
+        }
+    }
+
+    @FXML
+    private void searchEnter(ActionEvent event) {
     }
 }
